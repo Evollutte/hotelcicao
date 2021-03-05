@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}"/>
+    <title>Hotel Cição</title>
+</head>
+<body>
+    <header class="cabecalho">
+        {% if user.is_authenticated %}
+            <a href="{% url 'account_profile' %}"><h1 class="users">Central do Assinante</h1><p class="name">Olá, {{ user.username }}</p></a>
+        {% else %}
+            <a href="{% url 'account_login' %}"><h1 class="users">Central do Assinante</h1><p class="name">Olá, Visitante</p></a>
+        {% endif %}
+        <a href="{% url 'home' %}"><h1 class="logo">Logo</h1></a>
+        <div class="container">
+            <nav class="menu-principal menu-principal--fechado">
+                <button class="menu-principal__btn">Abrir/fechar menu</button>
+                <ul class="menu-principal__lista">
+                    <li><a class="menu-principal__item" href="{% url 'home' %}">Home</a></li>
+                    <li><a class="menu-principal__item menu-principal__item--atual" href="{% url 'bedrooms' %}">Quartos</a></li>
+                    <li><a class="menu-principal__item" href="{% url 'galerry' %}">Galeria</a></li>
+                    <li><a class="menu-principal__item" href="{% url 'about' %}">Sobre</a></li>
+                    <li><a class="menu-principal__item" href="{% url 'contact' %}">Contato</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a class="menu-principal__item" href="{% url 'account_profile' %}">Minha Conta</a></li>
+                    {% else %}
+                         <li><a class="menu-principal__item" href="{% url 'account_login' %}">Minha Conta</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <header class="pagina-cabecalho">
+            <h1 class="pagina-cabecalho__titulo">Quarto Higher</h1>
+        </header>
+        <section class="pagina-conteudo">
+            <div class="container__form">
+                <ul class="lista-imagens">
+                    <li class="lista-imagens__item">
+                        <a data-fancybox="gallery" href="{% static 'img/g8.jpg' %}">
+                            <img src="{% static 'img/g8.jpg' %}" alt="piscina do hotel">
+                        </a>
+                    </li>
+                </ul>
+                <p class="text-justify">
+                    O Hotel Cição oferece acomodações modernas compartilhadas, Wi-Fi gratuito e uma
+                    cozinha de uso comum, a apenas 750 metros da Praia do Flamengo, no Rio de Janeiro.
+                    A propriedade está localizada a 650 metros da Estação de Metrô Flamengo.
+                </p>
+                <p class="text-justify">Os dormitórios compartilhados do Hostel in Rio apresentam decoração
+                    moderna em preto e branco, ar-condicionado, armários individuais, luminárias e tomadas
+                    individuais e banheiro compartilhado. A propriedade fornece roupa de cama e amenidades de
+                    banho, além de TV a cabo e DVD player.</p>
+                <p class="text-justify">
+                    O albergue fica a 5 km do centro do Rio de Janeiro e a 4 km do Aeroporto
+                    Santos Dumont. O Estádio do Maracanã fica a 8 km de distância.
+                </p>
+                <p class="text-justify">
+                    Size: 60 M² <br>
+                    R$ 200 / Dia <br>
+                    Capacidade: Max. 2 pessoas <br>
+                    Cama: King Size <br>
+                    Serviços: Wi-fi, Café <br>
+                </p>
+                <p class="text-center"><a class="container__btn" href="">Reservar</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="rodape__linha-1">
+            <div class="container">
+                <div class="rodape__coluna">
+                    <h2 class="rodape__titulo">Contato</h2>
+                    <ul class="rodape__lista-links">
+                        <li><a class="rodape__lista-links__item rodape__email" href="mailto:hotel@cicao.com">hotel@cicao.com</a></li>
+                        <li><a class="rodape__lista-links__item rodape__telefone" href="tel:+55999999999">999999999</a></li>
+                    </ul>
+                </div>
+                <div class="rodape__coluna">
+                    <h2 class="rodape__titulo">Sobre</h2>
+                    <ul class="rodape__lista-links">
+                        <li><a class="rodape__lista-links__item" href="{% url 'about' %}">Sobre nós</a></li>
+                        <li><a class="rodape__lista-links__item" href="">Dúvidas Frequentes</a></li>
+                        <li><a class="rodape__lista-links__item" href="{% url 'contact' %}">Fale Conosco</a></li>
+                        <li><a class="rodape__lista-links__item" href="painel-de-controle">Painel de Controle</a></li>
+                    </ul>
+                </div>
+                <div class="rodape__coluna">
+                    <h2 class="rodape__titulo">Redes Sociais</h2>
+                    <ul class="rodape__lista-links">
+                        <li><a class="rodape__lista-links__item rodape__facebook" href="" target="_blank">Facebook</a></li>
+                        <li><a class="rodape__lista-links__item rodape__instagram" href="" target="_blank">Instagram</a></li>
+                        <li><a class="rodape__lista-links__item rodape__whatsapp" href="" target="_blank">WhatsApp</a></li>
+                        <li><a class="rodape__lista-links__item rodape__twitter" href="" target="_blank">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="rodape__linha-2">
+            Copyright © 2021 - 2021 | HOTEL CIÇÃO - Todos os direitos reservados
+        </div>
+    </footer>
+    <script src="{% static 'js/compressed.js' %}"></script>
+</body>
+</html>

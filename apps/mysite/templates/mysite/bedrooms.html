@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}"/>
+    <title>Hotel Cição</title>
+</head>
+<body>
+    <header class="cabecalho">
+        {% if user.is_authenticated %}
+            <a href="{% url 'account_profile' %}"><h1 class="users">Central do Assinante</h1><p class="name">Olá, {{ user.username }}</p></a>
+        {% else %}
+            <a href="{% url 'account_login' %}"><h1 class="users">Central do Assinante</h1><p class="name">Olá, Visitante</p></a>
+        {% endif %}
+        <a href="{% url 'home' %}"><h1 class="logo">Logo</h1></a>
+        <div class="container">
+            <nav class="menu-principal menu-principal--fechado">
+                <button class="menu-principal__btn">Abrir/fechar menu</button>
+                <ul class="menu-principal__lista">
+                    <li><a class="menu-principal__item" href="{% url 'home' %}">Home</a></li>
+                    <li><a class="menu-principal__item menu-principal__item--atual" href="{% url 'bedrooms' %}">Quartos</a></li>
+                    <li><a class="menu-principal__item" href="{% url 'galerry' %}">Galeria</a></li>
+                    <li><a class="menu-principal__item" href="{% url 'about' %}">Sobre</a></li>
+                    <li><a class="menu-principal__item" href="{% url 'contact' %}">Contato</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a class="menu-principal__item" href="{% url 'account_profile' %}">Minha Conta</a></li>
+                    {% else %}
+                         <li><a class="menu-principal__item" href="{% url 'account_login' %}">Minha Conta</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <header class="pagina-cabecalho">
+            <h1 class="pagina-cabecalho__titulo">Quartos</h1>
+        </header>
+        <section class="pagina-conteudo">
+            <div class="container">
+                <ul class="lista-imagens">
+                    <li class="lista-imagens__item">
+                        <h2 class="text-center">Quarto Standard</h2>
+                        <p class="text-center">R$ 100/dia</p>
+                        <p class="text-center">Max 1 pessoas</p>
+                        <h4 class="text-center"><a href="{% url 'standard' %}">Ver Detalhes</a></h4>
+                        <a data-fancybox="gallery" href="{% static 'img/g4.jpg' %}">
+                            <img src="{% static 'img/g4.jpg' %}" alt="quarto do hotel">
+                        </a>
+                    </li>
+                    <li class="lista-imagens__item">
+                        <h2 class="text-center">Quarto Higher</h2>
+                        <p class="text-center">R$ 200/dia</p>
+                        <p class="text-center">Max 2 pessoas</p>
+                        <h4 class="text-center"><a href="{% url 'higher' %}">Ver Detalhes</a></h4>
+                        <a data-fancybox="gallery" href="{% static 'img/g8.jpg' %}">
+                            <img src="{% static 'img/g8.jpg' %}" alt="piscina do hotel">
+                        </a>
+                    </li>
+                    <li class="lista-imagens__item">
+                        <h2 class="text-center">Quarto Deluxe</h2>
+                        <p class="text-center">R$ 500/dia</p>
+                        <p class="text-center">Max 5 pessoas</p>
+                        <h4 class="text-center"><a href="{% url 'deluxe' %}">Ver Detalhes</a></h4>
+                        <a data-fancybox="gallery" href="{% static 'img/g7.jpg' %}">
+                            <img src="{% static 'img/g7.jpg' %}" alt="piscina do hotel">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="rodape__linha-1">
+            <div class="container">
+                <div class="rodape__coluna">
+                    <h2 class="rodape__titulo">Contato</h2>
+                    <ul class="rodape__lista-links">
+                        <li><a class="rodape__lista-links__item rodape__email" href="mailto:hotel@cicao.com">hotel@cicao.com</a></li>
+                        <li><a class="rodape__lista-links__item rodape__telefone" href="tel:+55999999999">999999999</a></li>
+                    </ul>
+                </div>
+                <div class="rodape__coluna">
+                    <h2 class="rodape__titulo">Sobre</h2>
+                    <ul class="rodape__lista-links">
+                        <li><a class="rodape__lista-links__item" href="{% url 'about' %}">Sobre nós</a></li>
+                        <li><a class="rodape__lista-links__item" href="">Dúvidas Frequentes</a></li>
+                        <li><a class="rodape__lista-links__item" href="{% url 'contact' %}">Fale Conosco</a></li>
+                        <li><a class="rodape__lista-links__item" href="painel-de-controle">Painel de Controle</a></li>
+                    </ul>
+                </div>
+                <div class="rodape__coluna">
+                    <h2 class="rodape__titulo">Redes Sociais</h2>
+                    <ul class="rodape__lista-links">
+                        <li><a class="rodape__lista-links__item rodape__facebook" href="" target="_blank">Facebook</a></li>
+                        <li><a class="rodape__lista-links__item rodape__instagram" href="" target="_blank">Instagram</a></li>
+                        <li><a class="rodape__lista-links__item rodape__whatsapp" href="" target="_blank">WhatsApp</a></li>
+                        <li><a class="rodape__lista-links__item rodape__twitter" href="" target="_blank">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="rodape__linha-2">
+            Copyright © 2021 - 2021 | HOTEL CIÇÃO - Todos os direitos reservados
+        </div>
+    </footer>
+    <script src="{% static 'js/compressed.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}"/>
+    <title>Hotel Cição</title>
+</head>
+<body>
+    <header class="cabecalho">
+        {% if user.is_authenticated %}
+            <a href="{% url 'account_profile' %}"><h1 class="users">Central do Assinante</h1><p class="name">Olá, {{ user.username }}</p></a>
+        {% else %}
+            <a href="{% url 'account_login' %}"><h1 class="users">Central do Assinante</h1><p class="name">Olá, Visitante</p></a>
+        {% endif %}
+        <a href="{% url 'home' %}"><h1 class="logo">Logo</h1></a>
+        <div class="container">
+            <nav class="menu-principal menu-principal--fechado">
+                <button class="menu-principal__btn">Abrir/fechar menu</button>
+                <ul class="menu-principal__lista">
+                    <li><a class="menu-principal__item" href="{% url 'home' %}">Home</a></li>
+                    <li><a class="menu-principal__item" href="{% url 'bedrooms' %}">Quartos</a></li>
+                    <li><a class="menu-principal__item" href="{% url 'galerry' %}">Galeria</a></li>
+                    <li><a class="menu-principal__item menu-principal__item--atual" href="{% url 'about' %}">Sobre</a></li>
+                    <li><a class="menu-principal__item" href="{% url 'contact' %}">Contato</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a class="menu-principal__item" href="{% url 'account_profile' %}">Minha Conta</a></li>
+                    {% else %}
+                         <li><a class="menu-principal__item" href="{% url 'account_login' %}">Minha Conta</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <header class="pagina-cabecalho">
+            <h1 class="pagina-cabecalho__titulo">Sobre Nós</h1>
+        </header>
+        <section class="pagina-conteudo">
+            <div class="container__form">
+                <h2 class="text-center">Bem Vindo ao Hotel Cição</h2>
+                <p class="text-justify"> São 396 acomodações distribuidas entre apartamentos e suítes, com todas as comodidades:
+                    wireless, workstation no quarto, TV a cabo, cofres individuais, telefone com discagem
+                    direta, frigobar,room-service 24 horas por dia, lavanderia, concierge e o privilégio
+                    de uma vista panorâmica.</p>
+                <p class="text-justify">Cercado de uma ampla área verde, possui campo de golfe com 3 buracos, piscina,
+                    quadras de tênis, Health Club, além de um ambiente perfeito para almoço ou jantar
+                    de negócios nos restaurantes Verbena e Anturius e também para momentos de descontração
+                    no agradável Cição Bar.</p>
+                <ul class="lista-imagens">
+                    <li class="lista-imagens">
+                        <a data-fancybox="gallery" href="{% static 'img/s1.jpeg' %}">
+                            <img src="{% static 'img/s1.jpeg' %}" alt="quarto do hotel">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="rodape__linha-1">
+            <div class="container">
+                <div class="rodape__coluna">
+                    <h2 class="rodape__titulo">Contato</h2>
+                    <ul class="rodape__lista-links">
+                        <li><a class="rodape__lista-links__item rodape__email" href="mailto:hotel@cicao.com">hotel@cicao.com</a></li>
+                        <li><a class="rodape__lista-links__item rodape__telefone" href="tel:+55999999999">999999999</a></li>
+                    </ul>
+                </div>
+                <div class="rodape__coluna">
+                    <h2 class="rodape__titulo">Sobre</h2>
+                    <ul class="rodape__lista-links">
+                        <li><a class="rodape__lista-links__item" href="{% url 'about' %}">Sobre nós</a></li>
+                        <li><a class="rodape__lista-links__item" href="">Dúvidas Frequentes</a></li>
+                        <li><a class="rodape__lista-links__item" href="{% url 'contact' %}">Fale Conosco</a></li>
+                        <li><a class="rodape__lista-links__item" href="painel-de-controle">Painel de Controle</a></li>
+                    </ul>
+                </div>
+                <div class="rodape__coluna">
+                    <h2 class="rodape__titulo">Redes Sociais</h2>
+                    <ul class="rodape__lista-links">
+                        <li><a class="rodape__lista-links__item rodape__facebook" href="" target="_blank">Facebook</a></li>
+                        <li><a class="rodape__lista-links__item rodape__instagram" href="" target="_blank">Instagram</a></li>
+                        <li><a class="rodape__lista-links__item rodape__whatsapp" href="" target="_blank">WhatsApp</a></li>
+                        <li><a class="rodape__lista-links__item rodape__twitter" href="" target="_blank">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="rodape__linha-2">
+            Copyright © 2021 - 2021 | HOTEL CIÇÃO - Todos os direitos reservados
+        </div>
+    </footer>
+    <script src="{% static 'js/compressed.js' %}"></script>
+</body>
+</html>
