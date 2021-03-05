@@ -34,3 +34,7 @@ def contact(request):
             )
 
     return render(request, 'mysite/contact.html', dados)
+
+
+def view_404(request, exception):
+    return render(request, 'mysite/index.html')

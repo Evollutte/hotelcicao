@@ -63,6 +63,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'main.wsgi.application'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'hotelcicao@gmail.com'
+EMAIL_HOST_PASSWORD = 'ifecdagrwjknevat'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+DEFAULT_FROM_EMAIL = 'Hotel Cição! <hotelcicao@gmail.com>'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -96,10 +105,11 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 # Django-allauth
-
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
@@ -107,7 +117,7 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 ACCOUNT_FORMS = {'signup': 'apps.users.forms.MyCustomSignupForm'}
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 LOGIN_REDIRECT_URL = 'account_profile'
 LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_SESSION_REMEMBER = True
@@ -122,6 +132,6 @@ ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
 
-# crispy-forms
 
+# crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
