@@ -5,9 +5,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'lgvpo^p%an-=j441y5p2#&5bct&dff=2g4cf$(*1+arjng10(!'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '35.247.244.122']
 
 INSTALLED_APPS = [
     # django apps
