@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'lgvpo^p%an-=j441y5p2#&5bct&dff=2g4cf$(*1+arjng10(!'
 
-DEBUG = True
+DEBUG = False
 
 # 'localhost', '34.95.193.123'
 
