@@ -7,9 +7,9 @@ SECRET_KEY = 'lgvpo^p%an-=j441y5p2#&5bct&dff=2g4cf$(*1+arjng10(!'
 
 DEBUG = True
 
-# 'localhost', '35.247.244.122'
+# 'localhost', '34.95.193.123'
 
-ALLOWED_HOSTS = ['localhost', '35.247.244.122']
+ALLOWED_HOSTS = ['localhost', '34.95.193.123']
 
 INSTALLED_APPS = [
     # django apps
