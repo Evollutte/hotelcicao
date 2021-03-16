@@ -40,8 +40,29 @@
             <p class="cabecalho-home__subtitulo">Hotel & Resort</p>
             <h2 class="cabecalho-home__titulo">Bem vindo ao Hotel Cição</h2>
         </header>
-        <section>
-
+        <section class="container__form-pesquisa pagina-conteudo">
+            <form action="" class="formulario">
+                <div class="formulario__grupo-pesquisa">
+                    <label for="id_check-in" class=" requiredField">Check-in<span class="asteriskField">*</span></label>
+                    <input class="formulario__campo" id="check-in" type="date" name="check-in" placeholder="check-in" required>
+                </div>
+                <div class="formulario__grupo-pesquisa">
+                    <label for="id_check-in" class=" requiredField">Check-out<span class="asteriskField">*</span></label>
+                    <input class="formulario__campo" id="check-out" type="date" name="check-out" placeholder="check-out" required>
+                </div>
+                <div class="formulario__grupo-pesquisa">
+                    <label for="id_person-amount" class=" requiredField">Quantidade</label>
+                    <select name="select_amount" class="formulario__campo">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                <div class="formulario__botao-pesquisa">
+                    <input type="submit" class="formulario__botao" value="Pesquisar">
+                </div>
+            </form>
         </section>
     </main>
 

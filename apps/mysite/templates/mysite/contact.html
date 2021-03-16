@@ -45,12 +45,15 @@
             <form class="formulario" method="post">
                 {% csrf_token %}
                 <div class="formulario__grupo">
+                    <label for="">Nome<span class="asteriskField">*</span></label>
                     <input class="formulario__campo" id="name" type="text" name="name" placeholder="Nome" required>
                 </div>
                 <div class="formulario__grupo">
+                    <label for="">Email<span class="asteriskField">*</span></label>
                     <input class="formulario__campo" id="email" type="email" name="email" placeholder="E-mail" required>
                 </div>
                 <div class="formulario__grupo">
+                    <label for="">Mensagem<span class="asteriskField">*</span></label>
                     <textarea class="formulario__campo" name="message" id="message" cols="30" rows="10" placeholder="Mensagem" required></textarea>
                 </div>
                 <input type="submit" class="formulario__botao" value="Enviar" name="submit">

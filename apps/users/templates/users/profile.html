@@ -46,19 +46,24 @@
                 {% csrf_token %}
                 <p>Seus dados</p>
                 <div class="formulario__grupo">
-                    <fieldset class="formulario__campo"><a class="form_text">Usuário:</a> {{ request.user.username|default:'' }}</fieldset>
+                    <label> Usuário</label>
+                    <fieldset class="formulario__campo">{{ request.user.username|default:'' }}</fieldset>
                 </div>
                 <div class="formulario__grupo">
-                    <fieldset class="formulario__campo"><a class="form_text">Nome:</a> {{ request.user.first_name|default:'' }} {{ request.user.last_name|default:'' }}</fieldset>
+                    <label> Nome</label>
+                    <fieldset class="formulario__campo">{{ request.user.first_name|default:'' }} {{ request.user.last_name|default:'' }}</fieldset>
                 </div>
                 <div class="formulario__grupo">
-                    <fieldset class="formulario__campo"><a class="form_text">E-mail:</a> {{ request.user.email|default:'' }}</fieldset>
+                    <label> E-mail</label>
+                    <fieldset class="formulario__campo">{{ request.user.email|default:'' }}</fieldset>
                 </div>
                 <div class="formulario__grupo">
-                    <fieldset class="formulario__campo"><a class="form_text">CPF:</a> {{ request.user.cpf|default:'' }}</fieldset>
+                    <label> CPF</label>
+                    <fieldset class="formulario__campo">{{ request.user.cpf|default:'' }}</fieldset>
                 </div>
                 <div class="formulario__grupo">
-                    <fieldset class="formulario__campo"><a class="form_text">Telefone:</a> {{ request.user.phone|default:'' }}</fieldset>
+                    <label> Telefone</label>
+                    <fieldset class="formulario__campo">{{ request.user.phone|default:'' }}</fieldset>
                 </div>
                 <p><a class="form__text" href="{% url 'account_change_password' %}">Criar nova senha</a></p>
                 <a href="{% url 'account_logout' %}"><input type="button" class="formulario__botao" value="Sair"></a>

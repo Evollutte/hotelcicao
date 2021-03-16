@@ -67,9 +67,14 @@
                     R$ 100 / Dia <br>
                     Capacidade: Max. 1 pessoas <br>
                     Cama: Normal <br>
-                    Serviços: Wi-fi <br>
+                    Serviços: Wi-Fi <br>
                 </p>
-                <p class="text-center"><a class="container__btn" href="">Reservar</a></p>
+                <p class="text-justify"><a class="container__url" href="{% url 'bedrooms' %}">voltar</a></p>
+                {% if user.is_authenticated %}
+                    <p class="text-center"><a class="container__btn" href="">Reservar</a></p>
+                {% else %}
+                    <p class="text-center"><a class="container__btn" href="{% url 'account_login' %}">Reservar</a></p>
+                {% endif %}
             </div>
         </section>
     </main>

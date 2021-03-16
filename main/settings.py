@@ -5,7 +5,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'lgvpo^p%an-=j441y5p2#&5bct&dff=2g4cf$(*1+arjng10(!'
 
-DEBUG = False
+DEBUG = True
+
+# 'localhost', '35.247.244.122'
 
 ALLOWED_HOSTS = ['localhost', '35.247.244.122']
 
@@ -105,8 +107,8 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # Django-allauth
